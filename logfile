@@ -1,0 +1,7 @@
+2020-10-31 17:57:23.782 EDT [9385] LOG:  starting PostgreSQL 12.4 on x86_64-apple-darwin16.7.0, compiled by Apple LLVM version 8.1.0 (clang-802.0.42), 64-bit
+2020-10-31 17:57:23.785 EDT [9385] LOG:  listening on IPv6 address "::1", port 5432
+2020-10-31 17:57:23.785 EDT [9385] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-10-31 17:57:23.785 EDT [9385] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-10-31 17:57:23.796 EDT [9386] LOG:  database system was shut down at 2020-10-31 17:57:18 EDT
+2020-10-31 17:57:23.799 EDT [9385] LOG:  database system is ready to accept connections
+2020-10-31 17:57:32.645 EDT [9408] FATAL:  database "soccervp_backend_development" does not exist
