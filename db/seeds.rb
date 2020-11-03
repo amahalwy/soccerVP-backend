@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create(
+  phone_number: '14157696068',
+  first_name: 'Mohamed',
+  last_name: 'El Mahallawy',
+  email: 'mmahalwy@gmail.com'
+)
+
+user.events.create(
+  starts_at: DateTime.now + 1.hour,
+  ends_at: DateTime.now + 2.hour,
+  location: 'San Francisco',
+  max_participants: 12,
+  payment_type: :paypal,
+  payment_link: 'https://paypal.com',
+  cost_per_participant: 5,
+)
