@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
     end
 
     if @user&.authenticate_otp(params[:code].to_s, drift: User::DRIFT_LENGTH)
-      @user.auth_tracking!
       @token = encode_payload({ user_id: @user.id })
 
       render :show, status: :created

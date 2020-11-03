@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_031325) do
+ActiveRecord::Schema.define(version: 2020_11_03_034741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_031325) do
     t.integer "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "otp_secret_key"
+    t.datetime "otp_code_sent_at"
     t.index ["email"], name: "index_users_on_email"
     t.index ["phone_number"], name: "index_users_on_phone_number"
     t.index ["role"], name: "index_users_on_role"

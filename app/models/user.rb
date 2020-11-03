@@ -2,14 +2,16 @@
 #
 # Table name: users
 #
-#  id           :uuid             not null, primary key
-#  email        :string
-#  first_name   :string
-#  last_name    :string
-#  phone_number :string
-#  role         :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :uuid             not null, primary key
+#  email            :string
+#  first_name       :string
+#  last_name        :string
+#  otp_code_sent_at :datetime
+#  otp_secret_key   :string
+#  phone_number     :string
+#  role             :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #
@@ -20,6 +22,9 @@
 class User < ApplicationRecord
   DRIFT_LENGTH = 1_800 # 30 mins = 60 * 30
 
+  attr_accessor :code
+
+  has_one_time_password
   has_many :events
 
   enum role: {

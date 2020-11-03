@@ -19,6 +19,8 @@ gem 'twilio-ruby'
 gem "jwt"
 gem "phonelib"
 gem "phony_rails"
+gem 'active_model_otp'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
