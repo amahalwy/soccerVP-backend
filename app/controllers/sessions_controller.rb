@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if @user&.authenticate_otp(params[:code].to_s, drift: User::DRIFT_LENGTH)
       @token = encode_payload({ user_id: @user.id })
-
+      
       render :show, status: :created
     else
       # TODO: Invalid code, please check your entry or start over and we will send you a new code
@@ -14,9 +14,16 @@ class SessionsController < ApplicationController
     end
   end
 
-  private
+  def auto_login
+    if current_user
+      render json: current_user
+    else
+      render json: {errors: "No User Logged In."}
+    end     
+  end
 
-    def encode_payload(payload)
-      JWT.encode(payload, Rails.application.credentials.secret_key_base)
-    end
+  private
+  def encode_payload(payload)
+    JWT.encode(payload, Rails.application.credentials.secret_key_base)
+  end
 end

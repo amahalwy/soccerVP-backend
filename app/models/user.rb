@@ -36,8 +36,7 @@ class User < ApplicationRecord
 
   def send_otp_code
     message = "Your verification code is #{otp_code}"
-
-    TwilioClient.send_message(phone_number, message)
+    TwilioClient.send_message(self.phone_number, message)
   end
 
   def mail_otp_code

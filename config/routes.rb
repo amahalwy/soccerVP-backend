@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   resources :events
   resources :users
+  resources :sessions
+
+  get '/current_user', to: 'application#current_user', as: :current_user
   
 end

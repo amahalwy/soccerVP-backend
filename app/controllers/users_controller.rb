@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find_by(id: params[:id])
+    # @user = current_user
   end
 
   def update
@@ -40,6 +41,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :age, :gender, :number, :country, :city, :password, :email)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :email)
   end
 end

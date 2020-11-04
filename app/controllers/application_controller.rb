@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
     if !decoded_token.empty?
       user_id = decoded_token[0]["user_id"]
       @current_user ||= User.find_by(id: user_id) if user_id
+      render json: @current_user
     end
   end
   helper_method :current_user
