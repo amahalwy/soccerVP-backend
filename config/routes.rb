@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
 
-  get '/current_user', to: 'application#current_user', as: :current_user
+  # get '/current_user', to: 'application#current_user', as: :current_user
   
 end

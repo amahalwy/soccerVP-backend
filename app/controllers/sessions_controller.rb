@@ -13,15 +13,7 @@ class SessionsController < ApplicationController
       render json: format_errors(@user.errors), status: :unprocessable_entity
     end
   end
-
-  def auto_login
-    if current_user
-      render json: current_user
-    else
-      render json: {errors: "No User Logged In."}
-    end     
-  end
-
+  
   private
   def encode_payload(payload)
     JWT.encode(payload, Rails.application.credentials.secret_key_base)
