@@ -2,20 +2,20 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
   # GET /events
-  # GET /events.json
   def index
     # @events = Event.all
   end
 
   # GET /events/1
-  # GET /events/1.json
   def show
   end
 
   # POST /events
-  # POST /events.json
   def create
+    # @user = JSON.parse(current_user)
     @event = Event.new(event_params)
+    # @event.user_id = @user["id"]
+    
 
     if @event.save
       render :show, status: :created, location: @event
@@ -25,7 +25,6 @@ class EventsController < ApplicationController
   end
 
   # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
     if @event.update(event_params)
       render :show, status: :ok, location: @event
@@ -35,7 +34,6 @@ class EventsController < ApplicationController
   end
 
   # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
   end
@@ -48,6 +46,9 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:id)
+      params.require(:event).permit(
+        :id, :user_id, :location, :max_participants, :cost_per_participant,
+        :payment_link,:payment_type, :starts_at, :ends_at
+        )
     end
 end
