@@ -9,7 +9,6 @@ module TwilioClient
   AHMED_PHONE_NUMBER = "+14165625168".freeze
 
   def self.client
-    debugger
     account_sid = Rails.env.production ? Rails.application.credentials.twilio_account_sid : ENV["TWILIO_ACCOUNT_SID"]
     auth_token = Rails.env.production ? Rails.application.credentials.twilio_auth_token : ENV["TWILIO_AUTH_TOKEN"]
 
