@@ -9,6 +9,7 @@ module TwilioClient
   AHMED_PHONE_NUMBER = "+14165625168".freeze
 
   def self.client
+    debugger
     account_sid = Rails.application.credentials.twilio_account_sid
     auth_token = Rails.application.credentials.twilio_auth_token
 
