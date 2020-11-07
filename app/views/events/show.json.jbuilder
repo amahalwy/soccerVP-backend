@@ -1,2 +1,2 @@
 json.partial! "events/event", event: @event
-json.user @event.user
+json.owner @event.user
