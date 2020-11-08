@@ -9,17 +9,18 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    render :show, status: :created, location: @event
   end
 
   # POST /events
   def create
-    # @user = JSON.parse(current_user)
-    @event = Event.new(event_params)
-    # @event.user_id = @user["id"]
-    
+    new_params = event_params
+    new_params[:payment_type] = new_params[:payment_type].to_i
+    @event = Event.new(new_params)
 
     if @event.save
-      render :show, status: :created, location: @event
+      @user = User.where(id: @event.user_id)
+      render :create, status: :created, location: @event
     else
       render json: @event.errors, status: :unprocessable_entity
     end
