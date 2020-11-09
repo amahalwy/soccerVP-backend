@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
     if @event.save
       @user = User.where(id: @event.user_id)
-      render :create, status: :created, location: @event
+      render :show, status: :created, location: @event
     else
       render json: @event.errors, status: :unprocessable_entity
     end

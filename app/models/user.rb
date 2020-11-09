@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
   has_one_time_password
   has_many :events
+  has_many :rsvps
 
   enum role: {
     normal: 0,

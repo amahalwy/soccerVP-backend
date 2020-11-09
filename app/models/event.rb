@@ -24,6 +24,7 @@
 #
 class Event < ApplicationRecord
   belongs_to :user
+  has_many :rsvps
 
   enum payment_type: {
     paypal: 1,

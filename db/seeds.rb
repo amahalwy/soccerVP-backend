@@ -16,6 +16,13 @@ user = User.create(
   email: 'mmahalwy@gmail.com'
 )
 
+user2 = User.create(
+  phone_number: '14165625168',
+  first_name: 'Ahmed',
+  last_name: 'El Mahallawy',
+  email: 'amahalwy@gmail.com'
+)
+
 user.events.create(
   starts_at: DateTime.now + 1.hour,
   ends_at: DateTime.now + 2.hour,
@@ -31,6 +38,16 @@ user.events.create(
   ends_at: DateTime.now + 2.hour,
   location: 'San Diego',
   max_participants: 24,
+  payment_type: :paypal,
+  payment_link: 'https://paypal.com',
+  cost_per_participant: 5,
+)
+
+user2.events.create(
+  starts_at: DateTime.now + 1.hour,
+  ends_at: DateTime.now + 2.hour,
+  location: 'San Mateo',
+  max_participants: 20,
   payment_type: :paypal,
   payment_link: 'https://paypal.com',
   cost_per_participant: 5,

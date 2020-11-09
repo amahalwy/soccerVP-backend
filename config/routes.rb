@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :events, defaults: {format: :json}
   resources :users, defaults: {format: :json}
+  resources :rsvps, defaults: {format: :json}
   resources :sessions, defaults: {format: :json}
 
   # get '/current_user', to: 'application#current_user', as: :current_user
