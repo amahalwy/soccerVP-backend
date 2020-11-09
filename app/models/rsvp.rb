@@ -13,7 +13,7 @@
 #  index_rsvps_on_event_id  (event_id)
 #  index_rsvps_on_user_id   (user_id)
 #
-class RSVP < ApplicationRecord
+class Rsvp < ApplicationRecord
   validates :user_id, :event_id, presence: true
 
   belongs_to :user

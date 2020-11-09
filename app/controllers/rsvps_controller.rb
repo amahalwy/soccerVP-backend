@@ -1,4 +1,4 @@
-class RSVPsController < ApplicationController
+class RsvpsController < ApplicationController
 
   def show
     @rsvp = RSVP.find(params[:id])
