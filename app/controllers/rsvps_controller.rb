@@ -1,11 +1,11 @@
 class RsvpsController < ApplicationController
 
   def show
-    @rsvp = RSVP.find(params[:id])
+    @rsvp = Rsvp.find(params[:id])
   end
 
   def create
-    @rsvp = RSVP.new(rsvp_params)
+    @rsvp = Rsvp.new(rsvp_params)
     
     if @rsvp.save
       render :show, status: :created
