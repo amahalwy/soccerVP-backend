@@ -8,6 +8,9 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new(rsvp_params)
     
     if @rsvp.save
+      @user = User.find_by(id: params[:rsvp][:user_id])
+      @user.send_paypal_confirmation(Event.find_by(id: @rsvp.event_id))
+      
       render :show, status: :created
     else
       render json: @rsvp.errors, status: :unprocessable_entity

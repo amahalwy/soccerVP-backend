@@ -40,6 +40,13 @@ class User < ApplicationRecord
     TwilioClient.send_message(self.phone_number, message)
   end
 
+  def send_paypal_confirmation(event)
+    m1 = "You are confirmed to play in #{event.location} at #{event.starts_at}!"
+    m2 = " Reach out to #{event.user.first_name} at #{event.user.phone_number} for any questions."
+    message = m1 + m2
+    TwilioClient.send_message(self.phone_number, message)
+  end
+
   def mail_otp_code
     UserMailer.confirmation_email(self).deliver_now
   end
